@@ -29,8 +29,7 @@ class Example extends Phaser.Scene
             let p = pointers[i];
 
             if (p.isDown ) {
-                this.score += 1;
-                this.scoreText.setText('Fish: ' + this.score);
+                
                 console.log("Holding mouse / finger");
                 this.add.image(p.x,p.y, 'fish');
                 const music = this.sound.add('theme');
