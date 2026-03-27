@@ -11,36 +11,15 @@ class Example extends Phaser.Scene
         
     }
 
-    create () {
-    this.input.addPointer(9);
-    this.score = 0;
-
-    // Create the score text
-    this.scoreText = this.add.text(20, 20, 'Fish: ' + this.score, {
+    create ()
+    {
+        this.input.addPointer(9);
+        this.score = 0;
+        this.scoreText = this.add.text(20, 20,'Fish: ' +this.score, {
         font: '32px Arial',
         fill: '#ffffff'
-    });
-    this.scoreText.setDepth(Number.MAX_SAFE_INTEGER);
-
-    // Function to reposition scoreboard based on screen size
-    const updateScoreboardPosition = () => {
-        if (window.innerWidth < 600) {
-            // Mobile
-            this.scoreText.setPosition(10, 10);
-            this.scoreText.setFontSize(24); // smaller font for mobile
-        } else {
-            // Desktop
-            this.scoreText.setPosition(20, 20);
-            this.scoreText.setFontSize(32);
-        }
-    };
-
-    // Initial position
-    updateScoreboardPosition();
-
-    // Reposition on window resize
-    window.addEventListener('resize', updateScoreboardPosition);
-    
+        });
+        this.scoreText.setDepth(Number.MAX_SAFE_INTEGER);
         
        
        
