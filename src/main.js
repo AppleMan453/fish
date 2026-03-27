@@ -47,8 +47,8 @@ class Example extends Phaser.Scene
 const config = {
     type: Phaser.AUTO,
     parent: 'game-container',
-    width: 1500,
-    height: 1500,
+    width:  window.innerWidth,
+    height: window.innerHeight,
 
     backgroundColor: '#000000',
     pixelArt: false,
