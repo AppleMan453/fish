@@ -20,6 +20,23 @@ class Example extends Phaser.Scene
         fill: '#ffffff'
         });
         this.scoreText.setDepth(Number.MAX_SAFE_INTEGER);
+        function updateScoreboardPosition() {
+            if (window.innerWidth < 600) {
+                // Mobile
+                this.scoreText.style.top = '10px';
+                this.scoreText.style.left = '10px';
+                this.scoreText.style.right = 'auto';
+            } else {
+                // Desktop
+                this.scoreText.style.top = '20px';
+                this.scoreText.style.right = '20px';
+                this.scoreText.style.left = 'auto';
+            }
+        }
+
+        updateScoreboardPosition();
+
+        window.addEventListener('resize', updateScoreboardPosition);
         
        
        
