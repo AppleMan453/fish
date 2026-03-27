@@ -5,7 +5,6 @@ class Example extends Phaser.Scene
     {
 
         this.load.image('fish', 'assets/Fish-cool.png');
-        this.load.image('kill', 'assets/Kill.png');
         this.load.audio('theme', [
             'assets/Fish-audio.mp3'
         ]);
@@ -17,7 +16,7 @@ class Example extends Phaser.Scene
         this.input.addPointer(9);
         this.score = 0;
         this.scoreText = this.add.text(20, 20,'Fish: ' +this.score, {
-        font: '32px Ariel',
+        font: '32px Arial',
         fill: '#ffffff'
         });
         this.scoreText.setDepth(Number.MAX_SAFE_INTEGER);
