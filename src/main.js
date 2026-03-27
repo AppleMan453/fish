@@ -13,7 +13,7 @@ class Example extends Phaser.Scene
 
     create ()
     {
-        this.input.addPointer(9);
+        this.input.addPointer(3);
         
         
        
