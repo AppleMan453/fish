@@ -1,5 +1,6 @@
 class Example extends Phaser.Scene
 {
+   
     preload ()
     {
 
@@ -8,25 +9,36 @@ class Example extends Phaser.Scene
         this.load.audio('theme', [
             'assets/Fish-audio.mp3'
         ]);
+        
     }
 
     create ()
     {
-        
-        
+        this.input.addPointer(9);
 
        
        
 
-        
+       
     }
+    
     update() {
-    if (this.input.activePointer.isDown){
-        console.log("Holding mouse / finger");
-        this.add.image(this.input.activePointer.x,this.input.activePointer.y, 'fish');
-            const music = this.sound.add('theme');
+        let pointers = this.input.manager.pointers;
 
-            music.play();
+        for (let i = 0; i < pointers.length; i++) {
+            let p = pointers[i];
+
+            if (p.isDown ) {
+                 console.log("Holding mouse / finger");
+                this.add.image(p.x,p.y, 'fish');
+                const music = this.sound.add('theme');
+             
+                music.play();
+            }
+           
+
+
+            
     }
     }   
 }
