@@ -4,6 +4,7 @@ class Example extends Phaser.Scene
     {
 
         this.load.image('fish', 'assets/Fish-cool.png');
+        this.load.image('kill', 'assets/Kill.png');
         this.load.audio('theme', [
             'assets/Fish-audio.mp3'
         ]);
@@ -11,24 +12,34 @@ class Example extends Phaser.Scene
 
     create ()
     {
+        
+        
 
-        this.input.on('pointerdown', function (pointer)
-        {
+       
+       
 
-            console.log('down');
-
-            this.add.image(pointer.x, pointer.y, 'fish');
+        
+    }
+    update() {
+    if (this.input.activePointer.isDown){
+        console.log("Holding mouse / finger");
+        this.add.image(this.input.activePointer.x,this.input.activePointer.y, 'fish');
             const music = this.sound.add('theme');
 
             music.play();
-        }, this);
-
     }
+    }   
 }
+
+
 
 const config = {
     type: Phaser.AUTO,
     parent: 'game-container',
+    width: 1350,
+    height: 720,
+    backgroundColor: '#000000',
+    pixelArt: false,
     scene: Example
 };
 
