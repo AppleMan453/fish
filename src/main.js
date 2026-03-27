@@ -50,6 +50,10 @@ const config = {
     parent: 'game-container',
     width: 1350,
     height: 720,
+    scale: {
+        mode: Phaser.Scale.FIT,
+        autoCenter: Phaser.Scale.CENTER_BOTH
+    },
     backgroundColor: '#000000',
     pixelArt: false,
     scene: Example
