@@ -11,32 +11,36 @@ class Example extends Phaser.Scene
         
     }
 
-    create ()
-    {
-        this.input.addPointer(9);
-        this.score = 0;
-        this.scoreText = this.add.text(20, 20,'Fish: ' +this.score, {
+    create () {
+    this.input.addPointer(9);
+    this.score = 0;
+
+    // Create the score text
+    this.scoreText = this.add.text(20, 20, 'Fish: ' + this.score, {
         font: '32px Arial',
         fill: '#ffffff'
-        });
-        this.scoreText.setDepth(Number.MAX_SAFE_INTEGER);
-        function updateScoreboardPosition() {
-            if (window.innerWidth < 600) {
-                // Mobile
-                this.scoreText.style.top = '10px';
-                this.scoreText.style.left = '10px';
-                this.scoreText.style.right = 'auto';
-            } else {
-                // Desktop
-                this.scoreText.style.top = '20px';
-                this.scoreText.style.right = '20px';
-                this.scoreText.style.left = 'auto';
-            }
+    });
+    this.scoreText.setDepth(Number.MAX_SAFE_INTEGER);
+
+    // Function to reposition scoreboard based on screen size
+    const updateScoreboardPosition = () => {
+        if (window.innerWidth < 600) {
+            // Mobile
+            this.scoreText.setPosition(10, 10);
+            this.scoreText.setFontSize(24); // smaller font for mobile
+        } else {
+            // Desktop
+            this.scoreText.setPosition(20, 20);
+            this.scoreText.setFontSize(32);
         }
+    };
 
-        updateScoreboardPosition();
+    // Initial position
+    updateScoreboardPosition();
 
-        window.addEventListener('resize', updateScoreboardPosition);
+    // Reposition on window resize
+    window.addEventListener('resize', updateScoreboardPosition);
+    
         
        
        
