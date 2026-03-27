@@ -14,6 +14,12 @@ class Example extends Phaser.Scene
     create ()
     {
         this.input.addPointer(9);
+        this.score = 0;
+        this.scoreText = this.add.text(20, 20,'Fish: ' +this.score, {
+        font: '32px Arial',
+        fill: '#ffffff'
+        });
+        this.scoreText.setDepth(Number.MAX_SAFE_INTEGER);
         
        
        
@@ -28,6 +34,8 @@ class Example extends Phaser.Scene
             let p = pointers[i];
 
             if (p.isDown ) {
+                this.score += 1;
+                this.scoreText.setText('Fish: ' + this.score);
                 console.log("Holding mouse / finger");
                 this.add.image(p.x,p.y, 'fish');
                 const music = this.sound.add('theme');
@@ -47,8 +55,8 @@ class Example extends Phaser.Scene
 const config = {
     type: Phaser.AUTO,
     parent: 'game-container',
-    width:  window.innerWidth,
-    height: window.innerHeight,
+    width: innerWidth,
+    height: innerHeight,
 
     backgroundColor: '#000000',
     pixelArt: false,
