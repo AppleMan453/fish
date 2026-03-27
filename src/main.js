@@ -17,7 +17,7 @@ class Example extends Phaser.Scene
         this.input.addPointer(9);
         this.score = 0;
         this.scoreText = this.add.text(20, 20,'Fish: ' +this.score, {
-        font: '32px Comic Sans MS',
+        font: '32px Ariel',
         fill: '#ffffff'
         });
         this.scoreText.setDepth(Number.MAX_SAFE_INTEGER);
