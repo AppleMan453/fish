@@ -18,10 +18,7 @@ class Example extends Phaser.Scene {
         // Load music ONCE
         this.music = this.sound.add('theme');
 
-        // Control spawn rate (important for mobile)
-        this.lastSpawnTime = 0;
-        this.spawnDelay = 100; // milliseconds
-
+     
         // Handle touch / click
         this.input.on('pointerdown', (p) => {
             this.spawnFish(p);
