@@ -36,7 +36,8 @@ class Example extends Phaser.Scene {
         let choice = Math.floor(Math.random()*6)
         console.log(choice);
         if (choice === 1) {
-             fish.setTint(0xffffff); 
+             fish.setTint(0xffffff);
+             fish.setScale(2);
         } if (choice === 0) {
              fish.setTint(0xff0000);
         }if (choice === 2){
