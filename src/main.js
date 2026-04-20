@@ -6,7 +6,7 @@ class Example extends Phaser.Scene {
     }
 
     create () {
-        this.input.addPointer(4); // total 5 touches
+        this.input.addPointer(1); 
 
         this.score = 0;
 
@@ -35,11 +35,9 @@ class Example extends Phaser.Scene {
         this.scoreText.setText('Fish: ' + this.score);
 
         this.add.image(pointer.x, pointer.y, 'fish');
-
-        // play sound safely
-        if (!this.music.isPlaying) {
-            this.music.play();
-        }
+        
+        this.music.play();
+        
     }
 
     update () {
