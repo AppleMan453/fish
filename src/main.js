@@ -31,17 +31,10 @@ class Example extends Phaser.Scene {
 
         this.score += 1;
         this.scoreText.setText('Fish: ' + this.score);
-
+        
         let fish = this.add.image(pointer.x, pointer.y, 'fish');
 
-        let angle = Phaser.Math.Angle.Between(
-            this.cameras.main.centerX,
-            this.cameras.main.centerY,
-            pointer.x,
-            pointer.y
-        );
 
-        fish.setRotation(angle);
         
         this.music.play();
         
