@@ -16,8 +16,9 @@ class Example extends Phaser.Scene {
         }).setDepth(9999);
 
         // Load music ONCE
-        this.music = this.sound.add('theme');
-
+       if (!this.music.isPlaying) {
+            this.music.play();
+        }
      
         // Handle touch / click
         this.input.on('pointerdown', (p) => {
