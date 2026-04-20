@@ -6,8 +6,8 @@ class Example extends Phaser.Scene {
     }
 
     create () {
-        this.input.addPointer(1); 
-        
+        this.input.addPointer(4); // total 5 touches
+
         this.score = 0;
 
         this.scoreText = this.add.text(20, 20, 'Fish: ' + this.score, {
@@ -15,33 +15,39 @@ class Example extends Phaser.Scene {
             fill: '#ffffff'
         }).setDepth(9999);
 
-        // Load music ONCE
-       if (!this.music.isPlaying) {
-            this.music.play();
-        }
-     
-        // Handle touch / click
+        this.music = this.sound.add('theme');
+
+
+
         this.input.on('pointerdown', (p) => {
             this.spawnFish(p);
         });
     }
 
     spawnFish(pointer) {
-        
+
+
 
         this.score += 1;
         this.scoreText.setText('Fish: ' + this.score);
-        
+
         let fish = this.add.image(pointer.x, pointer.y, 'fish');
 
+        let angle = Phaser.Math.Angle.Between(
+            this.cameras.main.centerX,
+            this.cameras.main.centerY,
+            pointer.x,
+            pointer.y
+        );
 
-        
-        this.music.play();
-        
+        fish.setRotation(angle);
+
+        if (!this.music.isPlaying) {
+            this.music.play();
+        }
     }
 
     update () {
-        // Optional: allow holding touch (controlled rate)
         this.input.manager.pointers.forEach(p => {
             if (p.isDown) {
                 this.spawnFish(p);
